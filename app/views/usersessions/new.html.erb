@@ -1,0 +1,13 @@
+<%= stylesheet_link_tag "test" %>
+<p> Welcome User Sign-in</p>
+
+<%= form_with url: usersessions_path do |form| %>
+
+  <label for="email">Email id &nbsp &nbsp</label>
+  <%= form.email_field :email%><br><br>
+
+  <label for="password">Password &nbsp</label>
+  <%= form.password_field :password%><br><br>
+
+  <p margin=auto><%= form.submit "Sign in" %><p>
+<% end %>

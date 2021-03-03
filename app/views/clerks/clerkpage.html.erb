@@ -1,0 +1,8 @@
+<p>You have Successfully logged in to your account<p>
+<button><%= link_to "sign Out", clerksession_path(@current_clerk.id), :method => :delete %></button>
+<p>To view menu and order food click the link below<p>
+<button><%= link_to "see menu", "/clerkmenus"%></button>
+<p> To see your cart click the link below <p>
+<button><%= link_to "My cart", "/carts/clerk #{@current_clerk.id}"%></button>
+<p> To View Orders click the link below<p>
+<button> <%= link_to "View Orders",  "/ownerorders"%></button>

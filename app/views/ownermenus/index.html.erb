@@ -1,0 +1,27 @@
+<head>
+<%= stylesheet_link_tag "test" %>
+</head>
+<body>
+<h2> Menu Categories List <h2>
+
+<div>
+    <%= form_with model: @menu_category do |form| %>
+    <label for="category name">Enter the new Category:</label>
+    <%= form.text_field :name %><br><br>
+    <%= form.submit "Add The Category" %>
+    <% end %>
+<div>
+
+<div>
+   <p>List of Categories<p>
+   <ul font-size=10px>
+      <% @menu_category_list.each do |category|%>
+         <li>
+            <p><%= category.name%><p>
+            <button><%= link_to "list", "/ownermenuitems/#{category.id}"%> </button>&nbsp &nbsp &nbsp
+            <button><%= link_to "Delete", "/ownermenus/#{category.id}", :method => :delete%></button>
+         </li>
+      <%end%>
+   </ul>
+<div>
+</body>

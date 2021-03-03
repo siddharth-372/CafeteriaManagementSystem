@@ -1,0 +1,2 @@
+class CreateClerk < ApplicationRecord
+end

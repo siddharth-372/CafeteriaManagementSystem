@@ -1,0 +1,31 @@
+<h3> Order from Clerks </h3>
+  <% @clerklists.each do |order|%>
+    <ul>
+    <li>Order id: <%= order.id%></li>
+    <li>Date Ordered: <%= order.date_ordered%></li>
+    <li>Name: <%= order.first_name%></li>
+    <li>Total Price: <%= order.get_total_price%></li>
+    <%= form_with(url: "/ownerorders/#{order.id}", method: "put") do %>
+     <input type = "checkbox" id = "delivered"
+      name = "delivered"
+      <%= order.status ? "checked" : ""%>
+      onclick="this.form.submit()"/>
+      <label for="delivered"> Mark as delivered</label>
+    <%end%>
+    </ul>
+  <%end%>
+<h3> Order from Customers </h3>
+ <% @customerlists.each do |order|%>
+    <ul>
+    <li>Order id: <%= order.id%></li>
+    <li>Date Ordered: <%= order.date_ordered%></li>
+    <li>Name: <%= order.first_name%></li>
+    <li>Total Price: <%= order.get_total_price%></li>
+    <%= form_with(url: "/ownerorders/#{order.id}", method: "put") do %>
+     <input type = "checkbox"
+      name = "completed"
+      <%= order.status ? "checked" : ""%>
+      onclick="this.form.submit()"/>
+    <%end%>
+    </ul>
+  <%end%>

@@ -1,0 +1,12 @@
+<div>
+   <p>List of Categories<p>
+   <ul font-size=10px>
+   <% MenuCategory.all.each do |category|%>
+         <li>
+            <p><%= category.name%><p>
+            <button><%= link_to category.name, "/usermenus/#{category.id}"%></button>
+         </li>
+      <%end%>
+   </ul>
+<div>
+</body>

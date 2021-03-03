@@ -1,0 +1,14 @@
+<h2> Welcome to your Cafeteria <h2>
+
+<p>Please login to proceed further<p>
+
+<%= form_with url: ownersessions_path do |form| %>
+
+  <label for="email">Email id &nbsp &nbsp</label>
+  <%= form.email_field :email%><br><br>
+
+  <label for="password">Password &nbsp</label>
+  <%= form.password_field :password%><br><br>
+
+  <p margin=auto><%= form.submit "Sign in" %><p>
+<% end %>

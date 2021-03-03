@@ -1,0 +1,18 @@
+<%= stylesheet_link_tag "test" %>
+<p> Create a new clerk</p>
+
+<%= form_with url: clerks_path do |form| %>
+  <label for="first_name">First Name</label>
+  <%= form.text_field :first_name %><br><br>
+
+  <label for="last_name">Last Name</label>
+  <%= form.text_field :last_name%><br><br>
+
+  <label for="email">Email id &nbsp &nbsp</label>
+  <%= form.email_field :email%><br><br>
+
+  <label for="password">Password &nbsp</label>
+  <%= form.password_field :password%><br><br>
+
+  <p margin=auto><%= form.submit "Sign Up" %><p>
+<% end %>

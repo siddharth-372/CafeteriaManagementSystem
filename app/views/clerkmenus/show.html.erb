@@ -1,0 +1,24 @@
+<div>
+   <p>List of Food Items<p>
+   <ul>
+      <% @item_lists.each do |item|%>
+         <li>
+            <p><%= item.name%><p>
+            <p> price: <%= item.price%><p>
+            <p> description: <%= item.description%><p>
+            <%= form_with url: "/carts" , method: :post do |form| %>
+            <p hidden><%= form.number_field :item_id, :value => item.id%>
+            <%= form.number_field :category_id, :value => params[:id]%>
+            <%= form.number_field :adder_id, :value => session[:current_clerk_id]%>
+            <%= form.text_field :who, :value => "clerk" %><p>
+            <%= form.number_field :quantity, :value => 1%>
+            <% value = Cart.where(adder_id: session[:current_clerk_id], who: "clerk", item_id: item.id) %>
+            <% if value.length() == 0%>
+                <%= form.submit "Add to cart"%>
+            <%end%>
+
+            <%end%>
+         </li>
+      <%end%>
+   </ul>
+<div>

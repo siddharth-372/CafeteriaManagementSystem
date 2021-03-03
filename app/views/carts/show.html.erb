@@ -1,0 +1,23 @@
+
+<h2>Your cart<h2>
+
+<section>
+  <ul>
+    <% @order_lists.each do |item|%>
+      <li>
+      <% food = MenuItem.find(item.item_id)%>
+      <p>Item Name: <%= food.name%><p>
+      <p>Price: <%= food.price%><p>
+
+      <p>Quantity: <%= item.quantity%><p>
+      <button><%= link_to "Delete", "/carts/#{item.who} #{item.adder_id} #{item.id}", :method => :delete%></button>
+      </li>
+    <%end%>
+  </ul>
+</section>
+
+<p>To place Order click Here<p>
+<% if @order_lists.length() > 0%>
+<% value = @order_lists[0]%>
+<button><%= link_to "Place order", "/orders/#{value.who} #{value.adder_id}"%></button>
+<%end%>

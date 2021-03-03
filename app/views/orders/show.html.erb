@@ -1,0 +1,11 @@
+<p>Confirm your order<p>
+
+<%= form_with url: "/orders" , method: :post do |form| %>
+   <p hidden><%= form.text_field :who, :value => @who%>
+   <%= form.number_field :buyer_id, :value => @buyer_id%>
+   <%= form.text_field :orderitems, :value => @array_string%>
+   <%= form.number_field :total_price, :value => @total_price%></p>
+   <p> your total price for this order is <%= @total_price%> <p>
+   <p> click yes to place the order <p>
+   <%= form.submit "Yes"%>
+<%end%>

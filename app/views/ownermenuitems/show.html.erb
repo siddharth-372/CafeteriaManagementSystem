@@ -1,0 +1,28 @@
+<h2> <%= @current_category.name%> List <h2>
+
+<div>
+    <%= form_with url: "/ownermenuitems" , method: :post do |form| %>
+   <p> <label for="name">Enter the new Food Item:</label><p>
+    <%= form.text_field :name %><br><br>
+    <p><label for="description">Enter the description:</label><p>
+    <%= form.text_field :description%><br><br>
+    <p><label for="price">Enter the price:</label><p>
+    <%= form.text_field :price%><br><br>
+    <p hidden><%= form.number_field :menu_category_id, :value => @current_category.id%><br><p>
+    <%= form.submit "Add The new Food" %>
+    <% end %>
+<div>
+<div>
+   <p>List of Food Items<p>
+   <ul>
+      <% @item_lists.each do |item|%>
+         <li>
+            <p><%= item.name%><p>
+            <p> price: <%= item.price%><p>
+            <p> description: <%= item.description%><p>
+            <%id_str = "#{@current_category.id} #{item.id}"%>
+             <button><%= link_to "delete", "/ownermenuitems/#{id_str}", :method => :delete%></button>
+         </li>
+      <%end%>
+   </ul>
+<div>

@@ -1,0 +1,14 @@
+<p>You are Successfully logged In!<p>
+<button> <%= link_to "sign Out", ownersession_path(@current_owner.id), :method => :delete %> </button>
+
+<p> To Create a new Owner or a partner account click the link below<p>
+<button> <%= link_to "Add new owner",  new_owner_path%></button>
+
+<p> To Create a clerk account click the link below<p>
+<button> <%= link_to "Add new clerk",  new_clerk_path%></button>
+
+<p> To add and delete food items from the menu click the link below<p>
+<button> <%= link_to "Cafe Menu",  "/ownermenus"%></button>
+
+<p> To View Orders click the link below<p>
+<button> <%= link_to "View Orders",  "/ownerorders"%></button>
