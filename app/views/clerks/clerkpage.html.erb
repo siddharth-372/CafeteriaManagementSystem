@@ -6,3 +6,5 @@
 <button><%= link_to "My cart", "/carts/clerk #{@current_clerk.id}"%></button>
 <p> To View Orders click the link below<p>
 <button> <%= link_to "View Orders",  "/ownerorders"%></button>
+<p> To see your previous order click the link below <p>
+<button><%= link_to "My Orders", "/buyerorders/clerk #{@current_clerk.id}"%></button>

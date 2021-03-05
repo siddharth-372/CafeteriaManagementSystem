@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   resources :carts
   resources :orders
   resources :ownerorders
+  resources :orderanalysis
+  resources :buyerorders
 end

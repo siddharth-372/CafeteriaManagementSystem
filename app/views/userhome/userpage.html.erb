@@ -5,3 +5,5 @@
 <button><%= link_to "see menu", "/usermenus"%></button>
 <p> To see your cart click the link below <p>
 <button><%= link_to "My cart", "/carts/user #{@current_user.id}"%></button>
+<p> To see your previous order click the link below <p>
+<button><%= link_to "My Orders", "/buyerorders/user #{@current_user.id}"%></button>

@@ -1,3 +1,4 @@
+require 'json'
 class OwnerordersController < OwnerloginController
   skip_before_action :ensure_owner_logged_in
 
@@ -12,5 +13,11 @@ class OwnerordersController < OwnerloginController
     order.status = true
     order.save
     redirect_to "/ownerorders"
+  end
+
+  def show
+    order_id = params[:id]
+    order = Order.find(order_id)
+    @item_lists = JSON::parse(order.orderitems)
   end
 end

@@ -30,6 +30,16 @@ class CartsController < ApplicationController
     adder_id = str[1]
     id = str[2]
     Cart.find(id).destroy
+
+    if str.length() == 4
+      if str[3].eql?("c")
+        redirect_to "/clerkmenus/#{adder_id}"
+      else
+        redirect_to "/usermenus/#{adder_id}"
+      end
+      return
+    end
+
     redirect_to "/carts/#{who} #{adder_id}"
   end
 end

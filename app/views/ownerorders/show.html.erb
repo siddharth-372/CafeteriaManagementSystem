@@ -1,0 +1,10 @@
+<p> Order Item list <p>
+<%total_price = 0%>
+<% @item_lists.each do |item|%>
+   <p><%food = MenuItem.find(item["item_id"])%><p>
+   <p>Name: <%= food.name%><p>
+   <p>Quantity: <%= item["quantity"]%><p>
+   <p>Price: <%= item["price"]%><p>
+   <%total_price += item["price"]%>
+<%end%>
+<p>Total price: <%= total_price%><p>

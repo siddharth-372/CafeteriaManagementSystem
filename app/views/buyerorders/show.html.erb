@@ -1,0 +1,25 @@
+<h2> Your Orders <h2>
+
+<h3>Pending Orders<h3>
+<% @order_lists.each do |order|%>
+ <% if !order.status%>
+    <p>----------------------------------------<p>
+    <p>Customer id: <%= order.buyer_id%><p>
+    <p>Date Ordered: <%= order.data_ordered%><p>
+    <p>Total price: <%= order.total_price%>
+    <button><%= link_to "See order list", "/ownerorders/#{order.id}"%></button>
+    <p>----------------------------------------<p>
+  <%end%>
+<%end%>
+
+<h3>Delivered Orders<h3>
+<% @order_lists.each do |order|%>
+ <% if order.status%>
+    <p>----------------------------------------<p>
+    <p>Clerk id: <%= order.buyer_id%><p>
+    <p>Date Ordered: <%= order.data_ordered%><p>
+    <p>Total price: <%= order.total_price%>
+    <button><%= link_to "See order list", "/ownerorders/#{order.id}"%></button>
+    <p>----------------------------------------<p>
+  <%end%>
+<%end%>
